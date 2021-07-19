@@ -1,2 +1,8 @@
-<app-navbar></app-navbar>
-<div style="background-color: white; padding-top:40%"></div>
+
+<div class="card" *ngFor="let o of offerte">
+    <img src="{{o.url}}" class="card-img-top" alt="immagine località">
+    <div class="card-body">
+        <h5 class="card-title">{{o.title}}</h5>
+       <button class="btn btn-primary" [routerLink]="['/detail/'+o.id]">vai al dettaglio</button>
+    </div>
+</div>

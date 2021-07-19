@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GeneralService } from '../general.service';
+import { offerta } from '../models/offerte';
 
 @Component({
   selector: 'app-home-page',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-
-  constructor() { }
-
+   offerte:offerta[]=[];
+  constructor(private service:GeneralService) { }
+  getData(){
+    this.service.getOfferte().subscribe((data)=>{
+     this.offerte=data;
+    })
+  }
   ngOnInit() {
+    this.getData();
   }
 
 }

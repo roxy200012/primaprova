@@ -1,0 +1,45 @@
+<div class="container">
+    <form class="form">
+        <div class="row">
+            <label class="label">Nome</label>
+
+        </div>
+        <div class="input">
+            <input [(ngModel)]="name" [ngModelOptions]="{standalone:true}" type="text">
+        </div>
+        <div class="row">
+            <label class="label">Cognome</label>
+        </div>
+        <div class="input">
+            <input [(ngModel)]="surname" [ngModelOptions]="{standalone:true}" type="text">
+        </div>
+        <div class="row">
+            <label class="label">Data di nascita</label>
+        </div>
+        <div class="input">
+            <input [(ngModel)]="date" [ngModelOptions]="{standalone:true}" type="date">
+        </div>
+        <div class="row">
+            <label class="label">Luogo di nascita</label>
+        </div>
+        <div class="input">
+            <input [(ngModel)]="place" [ngModelOptions]="{standalone:true}" type="text">
+        </div>
+        <div class="row">
+            <label class="label">Tipo di pass</label>
+        </div>
+        <div class="input2">
+            <select [(ngModel)]="type" [ngModelOptions]="{standalone:true}">
+                <option></option>
+                <option value="Giornaliero">Giornaliero</option>
+                <option value="Settimanale">Settimanale</option>
+            </select>
+        </div>
+
+        <div class="row">
+            <button class="btn btn-primary" (click)="submit()">Prenota</button>
+        </div>
+
+
+    </form>
+</div>

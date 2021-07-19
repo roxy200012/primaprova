@@ -1,21 +1,18 @@
+
+
 nav{
     position: fixed;
-    width: 100%;
+    width:  100%;
     top:0;
-    //height: 100px;
-    //margin-bottom: 200px;
+    
+    height: 100px;
+    margin-bottom: 200px;
     display: block;
     z-index: 1000;
-    background-color: #FFAA0A !important;
+    background-color: #FFAA0A  ;
 }
 
-.logo{
-    width: 10rem;
-}
 
-.rounded-circle{
-    width: 2.813rem;
-}
 
 h6{
     margin: auto;
@@ -23,11 +20,12 @@ h6{
 }
 .nav-item{
     padding-right: 20%;
+    
 }
 
 a{
     text-decoration: none;
-    font-size: 46px;
+    font-size: 34px;
     font-style:normal;
     color: black;
    padding-right: 30%;
@@ -35,7 +33,7 @@ a{
 }
 
 .center{
-    margin: auto;
+    margin-left: 15%;
     width: 50%;
     padding: 0.625rem;
     text-align: center;

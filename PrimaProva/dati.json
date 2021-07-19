@@ -1,0 +1,30 @@
+{
+  "offerte": [
+    {
+      "id": 1,
+      "url": "../../assets/colosseum.010.jpg",
+      "title": "Immergiti nell'atmosfera romana",
+      "description": "Immergiti nell'atmosfera romana e visita i nostri monumenti.",
+      "pass_prenotati": 12,
+      "pass_liberi": 50
+    },
+    {
+      "id": 2,
+      "url": "../../assets/cinque_terre_vernazza.jpg",
+      "title": "Immergiti nel nostro mare",
+      "description": "Immergiti nel nostro mare e gusta i nostri prodotti.",
+      "pass_prenotati": 2,
+      "pass_liberi": 60
+    }
+  ],
+  "prenotazione": [
+    {
+      "name": "rossana",
+      "surname": "grizzo",
+      "date": "2000-12-07",
+      "place": "san daniele del friuli",
+      "type": "Giornaliero",
+      "id": 1
+    }
+  ]
+}

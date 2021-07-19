@@ -7,12 +7,7 @@ exports.__esModule = true;
 // npm i @types/node
 // POI, SEMPRE SU UN NUOVO TERMINALE (`CTRL` + `SHIFT` + `ò`) SCRIVERE : ` nodemon . `
 // POI, SEMPRE SU UN NUOVO TERMINALE (`CTRL` + `SHIFT` + `ò`) SCRIVERE : ` tsc -w index.ts `
-// OPLA', IL GIOCO E' FATTO, ANDATE SUL BROWSER E SCRIVETE SULLA BARRA DEGLI INDIRIZZI  ` http://127.0.0.1:3000/api `  || NOTA BENE: SE SI CAMBIA RIGA 29 (routePrefix: '/api',), NON SI DOVRA' PIU METTERE  ..1:3000/API MA ..1:3000/PAROLA-CHE-HAI-SCRITTO-AL-POSTO-DI-API
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////                                                                                                         //
-///  PREMERE `CTRL` + `F` E DIGITARE `###`, QUELLI SONO I CAMPI DA MODIFICARE IN RELAZIONE ALL'ESERCIZIO    ///
-//                                                                                                         ////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// ANDATE SUL BROWSER E SCRIVETE SULLA BARRA DEGLI INDIRIZZI  ` http://127.0.0.1:3000/api `  
 var fastify_1 = require("fastify");
 var swagger = require("fastify-swagger");
 var app = fastify_1["default"]({
@@ -23,8 +18,8 @@ app.register(swagger["default"], {
     routePrefix: '/api',
     swagger: {
         info: {
-            title: '###Esame ITS 2021',
-            description: '###Api Esame',
+            title: 'Esame ITS 2021',
+            description: 'Api Esame',
             version: '1.0.0'
         },
         host: '127.0.0.1:3000',
@@ -35,34 +30,60 @@ app.register(swagger["default"], {
     exposeRoute: true
 });
 // CHIAMATA GET PER RICEVERE I DATI
-app.get("/pippo", function (req, reply) {
+app.get("/offerte", function (req, reply) {
     reply
         .code(200) // => IL CODICE CHE VIENE TORNATO
         .header('Content-Type', 'application/json; charset=utf-8')
-        .send({
-        name: '###NOME',
-        theme: '###THEME',
-        attraction: '###ATTRACTION',
-        location: '###LOCATION' //  |  =>
+        .send({ id: 1,
+        url: "../../assets/colosseum.010.jpg",
+        title: "Immergiti nell'atmosfera romana",
+        description: "Immergiti nell'atmosfera romana e visita i nostri monumenti.",
+        pass_prenotati: 12,
+        pass_liberi: 50
     });
 });
 // CHIAMATA POST PER INSERIRE I DATI
-app.post("/pippo", {
+app.get("/offerte/:id", {
+    schema: {
+        params: {
+            type: "object",
+            properties: {
+                id: {
+                    type: "number"
+                }
+            }
+        }
+    }
+}, function (req, reply) {
+    reply
+        .code(200) // => IL CODICE CHE VIENE TORNATO
+        .send({ id: 1,
+        url: "../../assets/colosseum.010.jpg",
+        title: "Immergiti nell'atmosfera romana",
+        description: "Immergiti nell'atmosfera romana e visita i nostri monumenti.",
+        pass_prenotati: 12,
+        pass_liberi: 50
+    });
+});
+app.post("/prenotazione", {
     schema: {
         params: {
             type: "object",
             properties: {
                 nome: {
-                    type: "string",
-                    description: "###Inserire descrizione chiamata POST (Ex: 'Inserire Nome')"
+                    type: "string"
                 },
                 cognome: {
-                    type: "string",
-                    description: "###Inserire descrizione chiamata POST"
+                    type: "string"
                 },
-                numero: {
-                    type: "number",
-                    description: "###Inserire descrizione chiamata POST"
+                data_nascita: {
+                    type: "string"
+                },
+                luogo_nascita: {
+                    type: "string"
+                },
+                tipo_pass: {
+                    type: "string"
                 }
             }
         }
@@ -71,47 +92,7 @@ app.post("/pippo", {
     reply
         .code(200) // => IL CODICE CHE VIENE TORNATO
         .send({
-        message: "###Data added succesfully!"
-    });
-});
-// CHIAMATA PUT PER MODIFICARE I DATI
-app.put("/pippo/:name", {
-    schema: {
-        params: {
-            type: "object",
-            properties: {
-                nome: {
-                    type: "string",
-                    description: "###Inserire descrizione chiamata POST (Ex: 'Inserire Nome da cambiare')"
-                }
-            }
-        }
-    }
-}, function (req, reply) {
-    reply
-        .code(200) // => IL CODICE CHE VIENE TORNATO
-        .send({
-        message: "###Data updated"
-    });
-});
-// CHIAMATA DELETE PER ELIMINARE I DATI
-app["delete"]("/pippo/:name", {
-    schema: {
-        params: {
-            type: "object",
-            properties: {
-                nome: {
-                    type: "string",
-                    description: "###Inserire descrizione chiamata POST (Ex: 'Inserire Nome dell'utente da eliminare')"
-                }
-            }
-        }
-    }
-}, function (req, reply) {
-    reply
-        .code(200) // => IL CODICE CHE VIENE TORNATO
-        .send({
-        message: "###User deleted succesfully!"
+        message: "Prenotazione effettuata con successo!"
     });
 });
 app.listen(3000, function (err) {

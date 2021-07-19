@@ -1,0 +1,8 @@
+<div class="detail" *ngIf="offerta">
+    <img src="{{offerta.url}}">
+    <h3>{{offerta.title}}</h3>
+    <h5>{{offerta.description}}</h5>
+    <h4>pass prenotati:{{offerta.pass_prenotati}}</h4>
+    <h4>pass liberi:{{offerta.pass_liberi}}</h4>
+    <button class="btn btn-primary" [routerLink]="['/prenotazione']">Prenota</button>
+</div>
